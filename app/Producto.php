@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Producto extends Model
 {
     use softDeletes;
 
-    protected $table = 'producto';
+    protected $table = 'productos';
 
     protected $fillable = ['nombre', 'descripcion', 'user_id', 'estado_id'];
 
@@ -20,5 +21,10 @@ class Producto extends Model
     public function usuario()
     {
       return $this->belongsTo(Usuarioperfil::class, 'user_id');
+    }
+
+    public function imagenes()
+    {
+      return $this->hasMany(Imagenes::class, 'user_id');
     }
 }

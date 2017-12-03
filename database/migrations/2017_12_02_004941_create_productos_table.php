@@ -21,11 +21,11 @@ class CreateProductosTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('usuarioperfil');
             $table->integer('estado_id')->unsigned()->nullable();
-            $table->foreign('estado_id')->references('id')->on('estadoproducto');
         });
     }
 
     /**
+     * 
      * Reverse the migrations.
      *
      * @return void

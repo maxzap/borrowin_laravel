@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Imagenes extends Model
 {
@@ -10,11 +11,11 @@ class Imagenes extends Model
 
     protected $table = 'imagenes';
 
-    protected $fillable = ['nombre', 'postid', 'user_id'];
+    protected $fillable = ['nombre','tipo', 'producto', 'user_id'];
 
-    public function post()
+    public function producto()
     {
-      return $this->belongsTo(Post::class, 'postid');
+      return $this->belongsTo(Producto::class, 'producto');
     }
 
     public function usuario()

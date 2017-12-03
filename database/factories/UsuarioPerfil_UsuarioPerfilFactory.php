@@ -2,8 +2,9 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\usuarioperfil_usuarioperfil::class, function (Faker $faker) {
+$factory->define(App\Usuarioperfil_Usuarioperfil::class, function (Faker $faker) {
+
     return [
-        //
+
     ];
 });

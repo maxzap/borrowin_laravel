@@ -11,7 +11,7 @@ $factory->define(App\Usuarioperfil::class, function (Faker $faker) {
           'fechacumpleano' => $faker->date($format = 'Y-m-d', $max = 'now'),
           'locationlat' => $faker->latitude($min = -90, $max = 90),
           'locationlon' => $faker->longitude($min = -180, $max = 180),
-          'about' => $faker->text($maxNbChars = 200),
+          'about' => $faker->text($maxNbChars = 140),
           'userpic' => $faker->image($filePath, 400, 300),
           'seguidos' => $faker->biasedNumberBetween($min = 10, $max = 80, $function = 'sqrt'),
           'postlikes' => $faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'),
