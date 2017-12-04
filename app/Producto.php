@@ -25,6 +25,6 @@ class Producto extends Model
 
     public function imagenes()
     {
-      return $this->hasMany(Imagenes::class, 'user_id');
+      return $this->hasMany(Imagenes::class, 'producto');
     }
 }
