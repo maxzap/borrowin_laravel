@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         ]);
         }
 
-        $usuarios = factory(Usuarioperfil::class)->times(5)->create();
+        $usuarios = factory(Usuarioperfil::class)->times(20)->create();
 
         foreach ($usuarios as $usuario) {
             for ($i=0; $i < 8; $i++) {
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
                           //Creo 8 Amigos por cada Usuarioperfil
                 factory(Usuarioperfil_Usuarioperfil::class)->create([
                                     'user_id' => $usuario->id,
-                                    'amigo' => $faker->biasedNumberBetween($min = 1, $max = 5, $function = 'sqrt'),
+                                    'amigo' => $faker->biasedNumberBetween($min = 1, $max = 20, $function = 'sqrt'),
 ]);
             }
             //creo el avatar del Usuarioperfil en la tabla imagenes
@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
             foreach ($productos as $producto) {
                 //Creo 5 iamgenes para cada producto
                 factory(Imagenes::class)->times(5)->create([
+
                                                             'tipo' => 2,
                                                             'producto' => $producto->id,
                                                             'user_id' => $usuario->id,
