@@ -22,6 +22,7 @@ class CreateProductoTransaccionTable extends Migration
             $table->foreign('producto')->references('id')
                   ->on('productos')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
             $table->primary(['producto', 'transaccion']);
         });
     }

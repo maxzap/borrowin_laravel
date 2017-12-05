@@ -2,8 +2,8 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\estadotransaccion::class, function (Faker $faker) {
+$factory->define(App\Estadotransaccion::class, function (Faker $faker) {
     return [
-        //
+
     ];
 });

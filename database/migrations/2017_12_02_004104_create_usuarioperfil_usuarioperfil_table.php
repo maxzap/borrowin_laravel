@@ -22,6 +22,7 @@ class CreateUsuarioperfilUsuarioperfilTable extends Migration
             $table->foreign('amigo')->references('id')
                   ->on('usuarioperfil')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

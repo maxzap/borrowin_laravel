@@ -9,7 +9,7 @@ class Estadotransaccion extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'estadotransaccion';
+      protected $table = 'estadotransaccion';
 
     protected $fillable = ['estado'];
 }

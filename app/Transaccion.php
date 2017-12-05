@@ -11,7 +11,7 @@ class Transaccion extends Model
 
     protected $table = 'transaccion';
 
-    protected $fillable = ['fecprestado', 'fecdevuelto','producto_id', 'plazo', 'valoracion', 'user_id', 'receptor_id'];
+    protected $fillable = ['fecprestado', 'fecdevuelto','producto_id', 'plazo', 'valoracion','estado_id','user_id','receptor_id'];
 
     public function producto()
     {

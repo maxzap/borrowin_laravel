@@ -15,6 +15,7 @@ class CreateUsuarioperfilTable extends Migration
     {
         Schema::create('usuarioperfil', function (Blueprint $table) {
             $table->increments('id');
+            $table->softDeletes();
             $table->timestamps();
             $table->string('nombre');
             $table->integer('genero');
