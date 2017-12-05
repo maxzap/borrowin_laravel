@@ -16,6 +16,7 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->softDeletes();
             $table->string('nombre');
             $table->string('descripcion');
             $table->integer('user_id')->unsigned()->nullable();
@@ -25,7 +26,7 @@ class CreateProductosTable extends Migration
     }
 
     /**
-     * 
+     *
      * Reverse the migrations.
      *
      * @return void

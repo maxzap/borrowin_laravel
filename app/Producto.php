@@ -9,6 +9,7 @@ class Producto extends Model
 {
     use softDeletes;
 
+
     protected $table = 'productos';
 
     protected $fillable = ['nombre', 'descripcion', 'user_id', 'estado_id'];
