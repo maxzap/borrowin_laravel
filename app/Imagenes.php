@@ -11,7 +11,7 @@ class Imagenes extends Model
 
     protected $table = 'imagenes';
 
-    protected $fillable = ['nombre','tipo', 'producto', 'user_id'];
+    protected $fillable = ['nombre','tipo_id', 'producto_id', 'post_id', 'user_id'];
 
     public function producto()
     {
@@ -22,5 +22,4 @@ class Imagenes extends Model
     {
       return $this->belongsTo(Usuarioperfil::class, 'user_id');
     }
-
 }

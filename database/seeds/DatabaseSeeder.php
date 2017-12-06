@@ -46,20 +46,20 @@ class DatabaseSeeder extends Seeder
         ]);
         }
 
-//Creo 20 USUARIOS
-        $usuarios = factory(Usuarioperfil::class)->times(20)->create();
+//Creo 5 USUARIOS
+        $usuarios = factory(Usuarioperfil::class)->times(5)->create();
         foreach ($usuarios as $usuario) {
 
-            for ($i=0; $i < 8; $i++) {
-                $amigos = $faker->biasedNumberBetween($min = 1, $max = 20, $function = 'sqrt');
+            for ($i=0; $i < 5; $i++) {
+                $amigos = $faker->biasedNumberBetween($min = 1, $max = 5, $function = 'sqrt');
 
-//Creo 8 AMIGOS por cada USUARIO
+//Creo 5 AMIGOS por cada USUARIO
               factory(Usuarioperfil_Usuarioperfil::class)->create([
                                     'user_id' => $usuario->id,
                                     'amigo' => $amigos,
 ]);
 
-//Creo 8 CONVERSACIONES de AMIGOS por cada USUARIO
+//Creo 5 CONVERSACIONES de AMIGOS por cada USUARIO
               $conversacion = factory(App\Conversacion::class)->create([
                                     'user_id' => $usuario->id,
                                     'receptor_id' => $amigos,
@@ -70,23 +70,23 @@ class DatabaseSeeder extends Seeder
                                     'conversacion_id' => $conversacion->id,
 ]);
 
-//Creo 5 POST por cada USUARIO
+//Creo 2 POST por cada USUARIO
 
-              $posts = factory(Post::class)->times(5)->create([
+              $posts = factory(Post::class)->times(2)->create([
                                     'user_id' => $usuario->id,
 
 ]);
 
               foreach ($posts as $post) {
-                //Creo 5 IMAGENES para cada POST
-              factory(Imagenes::class)->times(5)->create([
-                                    'nombre' => 'test_post',
-                                    'tipo' => 3,
-                                    'producto' => $post->id,
+                //Creo 2 IMAGENES para cada POST
+              factory(Imagenes::class)->times(2)->create([
+                                    'tipo_id' => 3,
+                                    'producto_id' => null,
+                                    'post_id' => $post->id,
                                     'user_id' => $usuario->id,
 ]);
-                //Creo 5 COMENTARIOS por cada POST
-              factory(Postcomentarios::class)->times(5)->create([
+                //Creo 3 COMENTARIOS por cada POST
+              factory(Postcomentarios::class)->times(3)->create([
                                     'user_id' => $amigos,
                                     'post' => $post->id,
 
@@ -98,13 +98,14 @@ class DatabaseSeeder extends Seeder
             //creo el AVATAR del USURIO en la tabla IMAGENES
               factory(Imagenes::class)->create([
                                     'nombre' => $usuario->userpic,
-                                    'tipo' => 1,
-                                    'producto' => null,
+                                    'tipo_id' => 1,
+                                    'producto_id' => null,
+                                    'post_id' => null,
                                     'user_id' => $usuario->id,
 ]);
 
             //creo 5 PRODUCTOS para cada USUARIO
-              $productos = factory(Producto::class)->times(5)
+              $productos = factory(Producto::class)->times(3)
                                                         ->create([
                                                             //asigno los productos al usuario creado
                                                             'user_id' => $usuario->id,
@@ -112,10 +113,11 @@ class DatabaseSeeder extends Seeder
 
             foreach ($productos as $producto) {
                 //Creo 5 IMAGENES para cada PRODUCTO
-              factory(Imagenes::class)->times(5)->create([
+              factory(Imagenes::class)->times(2)->create([
 
-                                                            'tipo' => 2,
-                                                            'producto' => $producto->id,
+                                                            'tipo_id' => 2,
+                                                            'producto_id' => $producto->id,
+                                                            'post_id' => null,
                                                             'user_id' => $usuario->id,
                                                           ]);
               //Creo 5 TRANSACCIONES por cada PRODUCTO

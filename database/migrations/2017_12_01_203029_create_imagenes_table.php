@@ -17,10 +17,11 @@ class CreateImagenesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('nombre');
-            $table->integer('tipo')->unsigned()->nullable();
-            $table->integer('producto')->unsigned()->nullable();
+            $table->integer('tipo_id')->unsigned()->nullable();
+            $table->integer('producto_id')->unsigned()->nullable();
+            $table->integer('post_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->index(['producto', 'user_id']);
+            $table->index(['producto_id', 'user_id']);
         });
     }
 
