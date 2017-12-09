@@ -20,4 +20,4 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 // qweqweqweqew
 Route::get('portal', 'PortalController@posts')->name('portal_post');
-Route::post('portal', 'PostController@crearPost')->name('crear_post');
+Route::post('portal_test', 'PostController@crearPost')->name('crear_post');
