@@ -14,8 +14,6 @@ $factory->define(App\Usuarioperfil::class, function (Faker $faker) {
           'about' => $faker->text($maxNbChars = 140),
           // 'userpic' => 'test_user',
           'userpic' => $faker->image($filePath, 200, 150),
-          'seguidos' => $faker->biasedNumberBetween($min = 10, $max = 80, $function = 'sqrt'),
-          'postlikes' => $faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'),
           'user_id' => $usuario->id,
           'edad' => $faker->randomDigitNotNull,
           'pais' => $faker->country,

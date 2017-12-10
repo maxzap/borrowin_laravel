@@ -11,7 +11,7 @@ class Post extends Model
 
     protected $table = 'post';
 
-    protected $fillable = ['texto', 'likescant', 'comentarioscant', 'user_id'];
+    protected $fillable = ['texto','user_id'];
 
     public function usuario()
     {

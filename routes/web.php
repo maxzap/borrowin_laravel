@@ -19,5 +19,6 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 // qweqweqweqew
-Route::get('portal', 'PortalController@posts')->name('portal_post');
-Route::post('portal_test', 'PostController@crearPost')->name('crear_post');
+Route::get('portal', 'PortalController@posts')->name('post_portal');
+Route::post('portal/crear-post', 'PostController@crearPost')->name('post_crear');
+Route::get('portal/borrar-post/{id}', 'PostController@borrarPost')->name('borrar_post')->middleware('auth');;

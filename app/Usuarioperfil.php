@@ -13,7 +13,7 @@ class Usuarioperfil extends Model
     protected $table = 'usuarioperfil';
 
     protected $fillable = ['nombre', 'genero', 'fechacumpleano', 'locationlat', 'locationlon',
-    'about', 'userpic', 'seguidos', 'postlikes', 'user_id', 'edad', 'pais'];
+    'about', 'userpic', 'user_id', 'edad', 'pais'];
 
     public function amigos()
     {
