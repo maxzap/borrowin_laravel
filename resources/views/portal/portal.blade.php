@@ -6,7 +6,7 @@
         <header>
           <h3>Lo que opina el resto de la gente..</h3>
         </header>
-        <article class="post">
+        <article class="post-guest">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
           <div class="info">
             Posteado por
@@ -15,7 +15,7 @@
             <a href="#">Likes</a> |
             <a href="#">No me gusta</a> |
             <a href="#">Editar</a> |
-            <a href="{{ route('borrar_post', ['post_id' => $post->id]) }}">Borrar</a>
+            <a href="">Borrar</a>
           </div>
         </article>
 
@@ -65,9 +65,9 @@
                 Posteado por {{ $post->usuario->nombre . " el " . $post->created_at}}
               </div>
               <div class="interaccion">
-                <a href="#">Likes</a> |
+                <a href="#">Me gusta!</a> |
                 <a href="#">No me gusta</a>
-                @if (Auth::user() == $post->user)
+                @if (Auth::user()->id == $post->usuario->id)
                   |
                   <a href="#">Editar</a> |
                   <a href="{{ route('borrar_post', $post) }}">Borrar</a>
@@ -81,5 +81,27 @@
 
       </section>
   @endguest
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal-editar">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edición de Post</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="post-cuerpo">Editar el Post</label>
+              <textarea class="form-control" name="post-cuerpo" id="post-cuerpo" rows="8"></textarea>
+            </div>
 
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 @endsection

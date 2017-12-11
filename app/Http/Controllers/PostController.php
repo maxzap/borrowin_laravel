@@ -28,17 +28,18 @@ class PostController extends Controller
       }
       return redirect()->route('post_portal')->with(['mensaje' => $mensaje]);
     }
+
     public function borrarPost($id)
     {
       $post = Post::findOrFail($id);
-      if (Auth::user() != $post->user) {
-        return redirect()->back();
-      }
+        if (Auth::user()->id != $post->usuario->id) {
+            return redirect()->back();
+        }
       $post->delete();
       $mensaje = "Error al borrar el post";
-      if ($post->save()) {
-        $mensaje = "Tu post se borro correctamente";
-      }
+        if ($post->save()) {
+            $mensaje = "Tu post se borro correctamente";
+        }
       return redirect()->route('post_portal')->with(['mensaje' => $mensaje]);
     }
 
