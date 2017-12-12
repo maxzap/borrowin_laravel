@@ -11,12 +11,7 @@
           <div class="info">
             Posteado por
           </div>
-          <div class="interaccion">
-            <a href="#">Likes</a> |
-            <a href="#">No me gusta</a> |
-            <a href="#">Editar</a> |
-            <a href="">Borrar</a>
-          </div>
+
         </article>
 
       </div>
@@ -57,25 +52,25 @@
           <header>
             <h3>Lo que opina el resto de la gente..</h3>
           </header>
-          <article class="post">
-            @foreach ($posts as $post)
-              {{ $post->texto }}
-              <br>
-              <div class="info">
-                Posteado por {{ $post->usuario->nombre . " el " . $post->created_at}}
-              </div>
-              <div class="interaccion">
-                <a href="#">Me gusta!</a> |
-                <a href="#">No me gusta</a>
-                @if (Auth::user()->id == $post->usuario->id)
-                  |
-                  <a href="#">Editar</a> |
-                  <a href="{{ route('borrar_post', $post) }}">Borrar</a>
-                  {{ method_field('DELETE') }}
-                @endif
-              </div>
-            @endforeach
-          </article>
+          @foreach ($posts as $post)
+            <article class="post" data-postid="{{ $post->id }}">
+                <p>{{ $post->texto }}</p>
+                <br>
+                <div class="info">
+                  Posteado por {{ $post->usuario->nombre . " el " . $post->created_at}}
+                </div>
+                <div class="interaccion">
+                  <a href="#" class="like">Me gusta!</a> |
+                  <a href="#" class="like">No me gusta</a>
+                  @if (Auth::user()->id == $post->usuario->id)
+                    |
+                    <a href="#" class="editar">Editar</a> |
+                    <a href="{{ route('borrar_post', $post) }}">Borrar</a>
+                    {{ method_field('DELETE') }}
+                  @endif
+                </div>
+            </article>
+          @endforeach
 
         </div>
 
@@ -98,10 +93,15 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="modal-guardar">Guardar Cambios</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+  <script>
+    var token = '{{ Session::token() }}';
+    var urlEditar = '{{ route('post_editar') }}';
+    var urlLike = '{{ route('post_like') }}';
+  </script>
 @endsection

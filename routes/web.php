@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('portal', 'PortalController@posts')->name('post_portal');
 Route::post('portal/crear-post', 'PostController@crearPost')->name('post_crear');
 Route::get('portal/borrar-post/{id}', 'PostController@borrarPost')->name('borrar_post')->middleware('auth');;
+Route::post('editar', 'PostController@editarPost')->name('post_editar');
+Route::post('like', 'PostController@likePost')->name('post_like');

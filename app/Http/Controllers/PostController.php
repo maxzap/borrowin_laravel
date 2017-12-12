@@ -42,5 +42,29 @@ class PostController extends Controller
         }
       return redirect()->route('post_portal')->with(['mensaje' => $mensaje]);
     }
+    public function editarPost(Request $request)
+    {
+      $this->validate($request, [
+        'body' => 'required'
+      ]);
+      $post = Post::find($request['postId']);
+      if (Auth::user()->id != $post->usuario->id) {
+        return redirect()->back();
+      }
+      $post->texto = $request['body'];
+      $post->update();
+      return response()->json(['nuevo_texto' => $post->texto], 200);
+    }
+    public function postLike(Request $request)
+    {
+      $like = new Like;
+      $like->
+      if (Auth::user()->id != $post->usuario->id) {
+        return redirect()->back();
+      }
+      $post->texto = $request['body'];
+      $post->update();
+      return response()->json(['nuevo_texto' => $post->texto], 200);
+    }
 
 }
