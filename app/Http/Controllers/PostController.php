@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Usuarioperfil;
+use App\Like;
+
 
 use DB;
 
@@ -57,14 +59,35 @@ class PostController extends Controller
     }
     public function postLike(Request $request)
     {
-      $like = new Like;
-      $like->
-      if (Auth::user()->id != $post->usuario->id) {
-        return redirect()->back();
+      $post_id = $request['postId'];
+      $esLike = $request['esLike'] === 'true';
+      $update = false;
+      $post = Post::find($post_id);
+      if (!$post) {
+        return null;
       }
-      $post->texto = $request['body'];
-      $post->update();
-      return response()->json(['nuevo_texto' => $post->texto], 200);
+      $user = Auth::user();
+      $usuario = Usuarioperfil::findOrFail($user->id);
+      $like = $usuario->Likes()->where('post_id', $post_id)->first();
+      if ($like) {
+        $tieneLikes = $like->like;
+        $update = true;
+        if ($tieneLikes == $esLike) {
+          $like->delete();
+          return null;
+        }
+      }else {
+        $like = new Like;
+      }
+      $like->like = $esLike;
+      $like->user_id = $user->id;
+      $like->post_id = $post->id;
+      if ($update) {
+        $like->update();
+      }else {
+        $like->save();
+      }
+      return null;
     }
 
 }

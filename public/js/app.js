@@ -30,6 +30,9 @@ $('.like').click(function(event){
     url: urlLike,
     data: {esLike: esLike, postId: postId, _token: token}
   })
-
+  .done(
+    // $(postBodyElement).text(msg['nuevo_texto']);
+    // $('#modal-editar').modal('hide');
+  );
 
 })
