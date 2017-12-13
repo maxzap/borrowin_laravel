@@ -104,4 +104,5 @@
     var urlEditar = '{{ route('post_editar') }}';
     var urlLike = '{{ route('post_like') }}';
   </script>
+  {{-- Un comentario--}}
 @endsection
