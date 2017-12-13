@@ -28,11 +28,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function perfil()
-    {
-    return $this->hasOne(Usuarioperfil::class, 'id');
-    }
-
     public function likes()
     {
       return $this->hasMany(Like::class);
