@@ -1,0 +1,25 @@
+.table-bordered {
+	border: 1px solid #ddd;
+	background: #fff !important;
+}
+.text-success {
+	color: #18BC9C !important;
+}
+.web-mail {
+	margin-right: 10px !important;
+	margin-top: -5px !important;
+}
+tr td a {
+	color: #666;
+	line-height: 2;
+}
+tr td a {
+	display: inline-block !important;
+	color: #666;
+}
+.table>tbody>tr>td {
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 1px solid #fff !important;
+}
