@@ -38,6 +38,40 @@ class PostController extends Controller
       $mensaje = "Error al borrar el post";
       if ($post->save()) {
         $mensaje = "Tu post se borro correctamente";
+      $post->texto = $request['body'];
+      $post->update();
+      return response()->json(['nuevo_texto' => $post->texto], 200);
+    }
+    public function postLike(Request $request)
+    {
+      $post_id = $request['postId'];
+      $esLike = $request['esLike'] === 'true';
+      $update = false;
+      $post = Post::find($post_id);
+      if (!$post) {
+        return null;
+      }
+      $user = Auth::user();
+      $usuario = Usuarioperfil::findOrFail($user->id);
+      $like = $usuario->Likes()->where('post_id', $post_id)->first();
+      
+      if ($like) {
+        $tieneLikes = $like->like;
+        $update = true;
+        if ($tieneLikes == $esLike) {
+          $like->delete();
+          return null;
+        }
+      }else {
+        $like = new Like;
+      }
+      $like->like = $esLike;
+      $like->user_id = $user->id;
+      $like->post_id = $post->id;
+      if ($update) {
+        $like->update();
+      }else {
+        $like->save();
       }
       return redirect()->route('post_portal')->with(['mensaje' => $mensaje]);
     }

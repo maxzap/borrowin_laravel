@@ -33,4 +33,8 @@ class User extends Authenticatable
     return $this->hasOne(Usuarioperfil::class, 'id');
     }
 
+    public function likes()
+    {
+      return $this->hasMany(Like::class);
+    }
 }
