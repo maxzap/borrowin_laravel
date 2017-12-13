@@ -9,7 +9,6 @@ class PortalController extends Controller
 {
     public function posts()
     {
-      // $posts = Post::All();
       $posts = Post::orderBy('created_at', 'desc')->get();
       return view('portal.portal', compact('posts'));
     }
