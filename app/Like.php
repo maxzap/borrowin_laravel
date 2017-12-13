@@ -16,8 +16,4 @@ class Like extends Model
     {
       return $this->belongsTo(Post::class, 'post_id');
     }
-    public function Likes()
-    {
-      return $this->belongsTo(Usuarioperfil::class, 'user_id');
-    }
 }

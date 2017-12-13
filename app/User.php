@@ -28,8 +28,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+<<<<<<< HEAD
     public function likes()
     {
       return $this->hasMany(Like::class);
     }
+=======
+    public function perfil()
+    {
+    return $this->hasOne(Usuarioperfil::class, 'id');
+    }
+
+>>>>>>> parent of 262a836... Merge branch 'master' into vistas
 }

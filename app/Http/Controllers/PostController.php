@@ -39,6 +39,7 @@ class PostController extends Controller
         }
       $post->delete();
       $mensaje = "Error al borrar el post";
+<<<<<<< HEAD
         if ($post->save()) {
             $mensaje = "Tu post se borro correctamente";
         }
@@ -87,6 +88,10 @@ class PostController extends Controller
         $like->update();
       }else {
         $like->save();
+=======
+      if ($post->save()) {
+        $mensaje = "Tu post se borro correctamente";
+>>>>>>> parent of 262a836... Merge branch 'master' into vistas
       }
       return null;
     }

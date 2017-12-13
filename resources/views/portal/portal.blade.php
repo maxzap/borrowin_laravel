@@ -45,29 +45,6 @@
           <button type="submit" name="enviar">Crear Post</button>
           {{ session('status') }}
 
-        </form>
-      </section>
-      <section class="posts">
-        <div class="div-posts">
-          <header>
-            <h3>Lo que opina el resto de la gente..</h3>
-          </header>
-          @foreach ($posts as $post)
-            <article class="post" data-postid="{{ $post->id }}">
-                <p>{{ $post->texto }}</p>
-                <br>
-                <div class="info">
-                  Posteado por {{ $post->usuario->nombre . " el " . $post->created_at}}
-                </div>
-                <div class="interaccion">
-                  <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'Te gusta este post!' : 'Me gusta' : 'Me gusta ' }}</a> |
-                  <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'No te gusto!' : 'No me gusta' : 'No me gusta ' }} </a>
-                  @if (Auth::user()->id == $post->usuario->id)
-                    |
-                    <a href="#" class="editar">Editar</a> |
-                    <a href="{{ route('borrar_post', $post) }}">Borrar</a>
-                    {{ method_field('DELETE') }}
-                  @endif
                 </div>
             </article>
           @endforeach

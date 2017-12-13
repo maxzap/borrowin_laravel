@@ -44,9 +44,5 @@ class Usuarioperfil extends Model
     {
       return $this->hasMany(Conversacion::class, 'user_id');
     }
-    public function likes()
-    {
-      return $this->hasMany(Like::class, 'user_id');
-    }
 
 }

@@ -17,8 +17,12 @@ class Post extends Model
     {
       return $this->belongsTo(Usuarioperfil::class, 'user_id');
     }
+<<<<<<< HEAD
     public function likes()
     {
       return $this->hasMany(Like::class, 'post_id');
     }
+=======
+
+>>>>>>> parent of 262a836... Merge branch 'master' into vistas
 }
