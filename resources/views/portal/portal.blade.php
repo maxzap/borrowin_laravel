@@ -99,5 +99,18 @@
               </section>
           @endguest
         </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <script>
+    var token = '{{ Session::token() }}';
+    var urlEditar = '{{ route('post_editar') }}';
+    var urlLike = '{{ route('post_like') }}';
+  </script>
+  {{-- Un comentario--}}
+@endsection
+
     </div>
 @stop
+
