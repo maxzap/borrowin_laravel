@@ -17,7 +17,7 @@ class Post extends Model
     {
       return $this->belongsTo(Usuarioperfil::class, 'user_id');
     }
-    public function Likes()
+    public function likes()
     {
       return $this->hasMany(Like::class, 'post_id');
     }
