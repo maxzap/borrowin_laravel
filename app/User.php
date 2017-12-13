@@ -27,6 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     public function likes()
@@ -40,4 +41,6 @@ class User extends Authenticatable
     }
 
 >>>>>>> parent of 262a836... Merge branch 'master' into vistas
+=======
+>>>>>>> parent of 191de29... Likes OK
 }

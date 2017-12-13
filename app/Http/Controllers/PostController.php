@@ -70,7 +70,6 @@ class PostController extends Controller
       $user = Auth::user();
       $usuario = Usuarioperfil::findOrFail($user->id);
       $like = $usuario->Likes()->where('post_id', $post_id)->first();
-      
       if ($like) {
         $tieneLikes = $like->like;
         $update = true;

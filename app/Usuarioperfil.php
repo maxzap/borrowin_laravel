@@ -44,5 +44,12 @@ class Usuarioperfil extends Model
     {
       return $this->hasMany(Conversacion::class, 'user_id');
     }
+<<<<<<< HEAD
+=======
+    public function Likes()
+    {
+      return $this->hasMany(Like::class, 'post_id');
+    }
+>>>>>>> parent of 191de29... Likes OK
 
 }

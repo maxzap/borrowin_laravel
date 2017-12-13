@@ -18,7 +18,11 @@ class Post extends Model
       return $this->belongsTo(Usuarioperfil::class, 'user_id');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function likes()
+=======
+    public function Likes()
+>>>>>>> parent of 191de29... Likes OK
     {
       return $this->hasMany(Like::class, 'post_id');
     }
