@@ -45,32 +45,6 @@
           <button type="submit" name="enviar">Crear Post</button>
           {{ session('status') }}
 
-<<<<<<< HEAD
-=======
-        </form>
-      </section>
-      <section class="posts">
-        <div class="div-posts">
-          <header>
-            <h3>Lo que opina el resto de la gente..</h3>
-          </header>
-          @foreach ($posts as $post)
-            <article class="post" data-postid="{{ $post->id }}">
-                <p>{{ $post->texto }}</p>
-                <br>
-                <div class="info">
-                  Posteado por {{ $post->usuario->nombre . " el " . $post->created_at}}
-                </div>
-                <div class="interaccion">
-                  <a href="#" class="like">Me gusta!</a> |
-                  <a href="#" class="like">No me gusta</a>
-                  @if (Auth::user()->id == $post->usuario->id)
-                    |
-                    <a href="#" class="editar">Editar</a> |
-                    <a href="{{ route('borrar_post', $post) }}">Borrar</a>
-                    {{ method_field('DELETE') }}
-                  @endif
->>>>>>> parent of 191de29... Likes OK
                 </div>
             </article>
           @endforeach
