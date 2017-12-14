@@ -62,8 +62,6 @@ function CreateXmlHttpObj()
 }
 
 function paisListOnChange() {
-var to=document.getElementById("advice");
-to.innerHTML="<img src='img/loading.gif' align='absmiddle'>";
     var paisList = document.getElementById("paisList");
 
     var selectedpais = paisList.options[paisList.selectedIndex].value;
@@ -90,7 +88,7 @@ function StateChangeHandler()
 	{
 		if(XmlHttpObj.status == 200)
 		{
-			PopulateprovinciaList(XmlHttpObj.responseXML.documentElement);
+			provinciaList(XmlHttpObj.responseXML.documentElement);
 		}
 		else
 		{
@@ -99,7 +97,7 @@ function StateChangeHandler()
 	}
 }
 
-function PopulateprovinciaList(localidadNode)
+function provinciaList(provinciaNode)
 {
     var provinciaList = document.getElementById("provinciaList");
 	for (var count = provinciaList.options.length-1; count >-1; count--)
@@ -107,12 +105,12 @@ function PopulateprovinciaList(localidadNode)
 		provinciaList.options[count] = null;
 	}
 
-	var localidadNodes = localidadNode.getElementsByTagName('provincia');
+	var provinciaNodes = provinciaNode.getElementsByTagName('provincia');
 	var textValue;
 	var optionItem;
-	for (var count = 0; count < localidadNodes.length; count++)
+	for (var count = 0; count < provinciaNodes.length; count++)
 	{
-   		textValue = Utf8.decode(GetInnerText(localidadNodes[count]));
+   		textValue = Utf8.decode(GetInnerText(provinciaNodes[count]));
 		idValue=count;
 		optionItem = new Option( textValue, textValue,  false, false);
 		provinciaList.options[provinciaList.length] = optionItem;
