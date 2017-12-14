@@ -13,7 +13,7 @@
                             <div>
                                 <h4>Información Personal</h4>
                             </div>
-                            <form class="form-horizontal" id="tryitForm" action="{{url('users')}}" method="get">
+                            <form class="form-horizontal" enctype="multipart/form-data" id="tryitForm" action="/subir" method="post">
                                 {{csrf_field()}}
                                 <div class="row">
                                     <div class="col">
@@ -143,4 +143,6 @@
             </div>
     </div>
     <script src="{{asset('assets/js/AjaxCode.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/pages/validation.js')}}"></script>
 @stop
