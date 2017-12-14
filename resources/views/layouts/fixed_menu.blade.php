@@ -257,7 +257,6 @@
 <script type="text/javascript" src="{{asset('assets/js/components.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/custom.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/pages/fixed_menu.js')}}"></script>
-
 @yield('footer_scripts')
 </body>
 </html>

@@ -4,6 +4,7 @@
  //Capturo el evento Guardar de un Post
 $('.post').find('.interaccion').find('.editar').click(function(event) {
   event.preventDefault();
+  console.log("estoy en post");
   postBodyElement =event.target.parentNode.parentNode.childNodes[0];
   var postBody = postBodyElement.textContent;
   postId = event.target.parentNode.parentNode.dataset['postid'];

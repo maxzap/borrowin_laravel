@@ -276,3 +276,51 @@ function loadjscssfile(filename, filetype) {
         $("#skin_change").attr("href", "assets/css/skins/"+filename+"")
     }
 }
+// ==============Post===============
+var postId = 0;
+var postBodyElement = null;
+
+//Capturo el evento Guardar de un Post
+$('.post').find('.interaccion').find('.editar').click(function(event) {
+ event.preventDefault();
+ postBodyElement =event.target.parentNode.parentNode.childNodes[1];
+ var postBody = postBodyElement.textContent;
+ postId = event.target.parentNode.parentNode.dataset['postid'];
+ $('#post-cuerpo').val(postBody);
+ $('#modal-editar').modal();
+})
+//Editar un Post
+$('#modal-guardar').click(function() {
+ $.ajax({
+   method: 'POST',
+   url: urlEditar,
+   data: {body: $('#post-cuerpo').val(), postId: postId, _token: token}
+ })
+ .done(function(msg) {
+   $(postBodyElement).text(msg['nuevo_texto']);
+   $('#modal-editar').modal('hide');
+ });
+});
+
+//Capturo el evento likes de un Post
+$('.like').click(function(event){
+ event.preventDefault();
+ postId = event.target.parentNode.parentNode.dataset['postid'];
+ //esLike dice si es un Me Gusta o un No Me Gusta
+ var esLike = event.target.previousElementSibling == null;
+ $.ajax({
+   method: 'POST',
+   url: urlLike,
+   data: {esLike: esLike, postId: postId, _token: token}
+ })
+ .done( function(){
+   event.target.innerText = esLike ? event.target.innerText == 'Me gusta' ? 'Te gusta este post!' : 'Me gusta' : event.target.innerText == 'No me gusta' ? 'No te gusto!' : 'No me gusta';
+   if (esLike) {
+     event.target.nextElementSibling.innerText = 'No me gusta';
+    } else {
+     event.target.previousElementSibling.innerText = 'Me gusta';
+   }
+
+ });
+
+})
