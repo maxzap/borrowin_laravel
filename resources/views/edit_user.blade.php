@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="outer">
-        <div class="inner">
             <div class="row">
                 <div class="col">
                     <div class="card">
@@ -25,7 +24,7 @@
                                             <div class="col-12 col-lg-6 text-center text-lg-left m-b-20">
                                                 <div class="" data-provides="fileinput">
                                                     <div class="fileinput-new img-thumbnail text-center">
-                                                        <img class="admin_img4" src="{{asset('assets/img/profile/20171005215642_profile.jpg')}}" data-src="img/admin2.jpg" alt="not found">
+                                                        <img class="admin_img4" src="{{ \Auth::user()->perfil->userpic }}" alt="Aun no subiste una imagen">
                                                     </div>
                                                     <div class="m-t-20 text-center m-b-20">
                                                       <input type="file" name="profile_pic" id="profile_pic" required >
@@ -41,7 +40,7 @@
                                                 <div class="input-group">
                                                         <span class="input-group-addon"> <i class="fa fa-user text-primary"></i>
                                                         </span>
-                                                    <input type="text" placeholder="nombre" name="firstName" id="u-name" class="form-control">
+                                                    <input type="text" placeholder="nombre" name="firstName" id="u-name" class="form-control" value=" {{ \Auth::user()->perfil->nombre }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +52,7 @@
                                             <div class="col-12 col-xl-6 col-lg-8">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-envelope text-primary"></i></span>
-                                                    <input type="text" placeholder="mail@example.com" id="email" name="email" class="form-control">
+                                                    <input type="text" placeholder="mail@example.com" id="email" name="email" class="form-control"value=" {{ \Auth::user()->email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +97,19 @@
                                             <div class="col-12 col-xl-6 col-lg-8">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-plus text-primary"></i></span>
-                                                    <input type="text" value="" id="pais" name="pais" class="form-control">
+                                                    <select name="paisList" id="paisList" onChange="return paisListOnChange()" class="form-control">
+                                                    <option >Seleccione su Pais...</option>
+                                                    <?php
+                                                    $xml = simplexml_load_file('paisesyprovincias.xml');
+                                                    $result = $xml->xpath("/lista/pais/nombre | /lista/pais/@id");
+                                                    for ($i=0;$i<count($result);$i+=2)
+                                                    {
+                                                    $e=$i+1;
+                                                    $pais=UTF8_DECODE($result[$e]);
+                                                    echo("<option value='$result[$i]'>$pais</option>");
+                                                    }
+                                                    ?>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,7 +120,9 @@
                                             <div class="col-12 col-xl-6 col-lg-8">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-plus text-primary"></i></span>
-                                                    <input type="text" value="" name="provincia" id="provincia" class="form-control">
+                                                    <select name="provinciaList" id="provinciaList" class="form-control">
+                                                      <option >Seleccione antes un pais</option>
+                                                    </select> <span id="advice"> </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,6 +141,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
+    <script src="{{asset('assets/js/AjaxCode.js')}}"></script>
 @stop

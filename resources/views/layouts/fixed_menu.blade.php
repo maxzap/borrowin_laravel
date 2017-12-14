@@ -92,7 +92,7 @@
                     <div class="btn-group">
                         <div class="user-settings no-bg">
                             <button type="button" class="btn btn-default no-bg" data-toggle="dropdown">
-                                <img src="{{asset('assets/img/profile/20171005215642_profile.jpg')}}" class="admin_img2 rounded-circle" alt=""> <strong>{{ \Auth::user()->email }}</strong>
+                                <img src="{{ \Auth::user()->perfil->userpic }}" class="admin_img2 rounded-circle" alt=""> <strong>{{ \Auth::user()->perfil->nombre }}</strong>
                                 <span class="fa fa-sort-down white_bg"></span>
                             </button>
                             <div class="dropdown-menu">
@@ -124,10 +124,9 @@
                     </div>
                     <div class="user-wrapper bg-dark">
                         <a class="user-link" href="">
-                            <img class="media-object img-thumbnail user-img  admin_img3" alt="User Picture"
-                                 src="{{asset('assets/img/profile/20171005215642_profile.jpg')}}">
-                            {{-- <p class="text-white user-info">Bienvenido {{ \Auth::user()->perfil->nombre }}</p></a> --}}
-
+                            <img class="media-object img-thumbnail user-img  admin_img3" alt=""
+                                 src="{{ \Auth::user()->perfil->userpic }}}">
+                            <p class="text-white user-info">Bienvenido {{ \Auth::user()->perfil->nombre }}</p></a>
                         <div class="search_bar col-lg-12">
                             <div class="input-group">
                                 <input type="search" class="form-control" placeholder="Buscar">

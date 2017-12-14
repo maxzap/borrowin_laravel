@@ -23,27 +23,20 @@
         </div>
     </header>
     <div class="outer">
-        <div class="inner bg-container">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-6 m-t-35">
                             <div class="text-center">
-                                <div class="form-group">
-                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumb_zoom zoom admin_img_width">
-                                            <img class="admin_img4" src="{{asset('assets/img/profile/20171005215642_profile.jpg')}}" data-src="img/admin2.jpg" alt="not found"></div>
-                                        <div class="fileinput-preview fileinput-exists thumb_zoom zoom admin_img_width"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <div class="">
+                                        <img class="admin_img4" src="{{ \Auth::user()->perfil->userpic }}" alt="Aun no subiste una imagen"></div>
+                                      </div>
+                                  </div>
                         <div class="col-lg-6 m-t-25">
-                            <div>
-                                <ul class="nav nav-inline view_user_nav_padding">
+                                <ul class="nav nav-inline">
                                     <li class="nav-item card_nav_hover">
                                         <a class="nav-link active" href="#user" id="home-tab"
-                                           data-toggle="tab" aria-expanded="true">Datos de usuario</a>
+                                           data-toggle="tab">Datos de usuario</a>
                                     </li>
                                     <li class="nav-item card_nav_hover">
                                         <a class="nav-link" href="#tab2" id="hats-tab" data-toggle="tab">Sobre mí</a>
@@ -57,37 +50,36 @@
                                         <table class="table" id="users">
                                             <tr>
                                                 <td>Usuario</td>
-                                                <td class="inline_edit">
-                                                        <span class="editable"
-                                                              data-title="user-name">Alejandro</span>
+                                                <td class="">
+                                                    <span>{{ \Auth::user()->perfil->nombre }}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>E-mail</td>
                                                 <td>
-                                                    <span class="editable" data-title="mail"></span>
+                                                    <span>{{ \Auth::user()->email }}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Teléfono</td>
                                                 <td>
-                                                    <span class="editable" data-title="phone"></span>
+                                                    <span></span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Registrado desde:</td>
-                                                <td>1 mes</td>
+                                                <td>{{ \Auth::user()->created_at }}</td>
                                             </tr>
                                             <tr>
                                                 <td>País</td>
                                                 <td>
-                                                    <span class="editable" data-title="pais"></span>
+                                                    <span>{{ \Auth::user()->perfil->pais }}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Provincia</td>
                                                 <td>
-                                                    <span class="editable" data-title="city"></span>
+                                                    <span></span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -139,12 +131,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
 @stop

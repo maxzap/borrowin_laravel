@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lista>
+	<pais id="01">
+		<nombre><![CDATA[Argentina]]></nombre>
+		<provincia>
+				<provincia c="0"><![CDATA[Buenos Aires]]></provincia>
+				<provincia c="0"><![CDATA[San Luis]]></provincia>
+				<provincia c="0"><![CDATA[San Juan]]></provincia>
+				<provincia c="0"><![CDATA[Tierra del Fuego]]></provincia>
+				<provincia c="0"><![CDATA[Santigo del Estero]]></provincia>
+				<provincia c="0"><![CDATA[Jujuy]]></provincia>
+				<provincia c="0"><![CDATA[Salta]]></provincia>
+				<provincia c="0"><![CDATA[Chaco]]></provincia>
+				<provincia c="0"><![CDATA[Santa Fe]]></provincia>
+
+		</provincia>
+	</pais>
+	<pais id="02">
+		<nombre><![CDATA[Brasil]]></nombre>
+		<provincia>
+				<provincia c="0"><![CDATA[Brasilia]]></provincia>
+				<provincia c="0"><![CDATA[Sao Pablo]]></provincia>
+				<provincia c="0"><![CDATA[Florianopolis]]></provincia>
+				<provincia c="0"><![CDATA[Canasbeiras]]></provincia>
+				<provincia c="0"><![CDATA[Natal]]></provincia>
+				<provincia c="0"><![CDATA[Puerto Gallinas]]></provincia>
+		</provincia>
+	</pais>
+	<pais id="03">
+		<nombre><![CDATA[Chile]]></nombre>
+		<provincia>
+				<provincia c="0"><![CDATA[Santiago de Chile]]></provincia>
+				<provincia c="0"><![CDATA[Valparaiso]]></provincia>
+				<provincia c="0"><![CDATA[Puerto Mont]]></provincia>
+				<provincia c="0"><![CDATA[Punta Arenas]]></provincia>
+		</provincia>
+	</pais>
+
+	</lista>
