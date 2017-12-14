@@ -19,11 +19,7 @@ class Post extends Model
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
     public function likes()
-=======
-    public function Likes()
->>>>>>> parent of 191de29... Likes OK
 =======
     public function Likes()
 >>>>>>> parent of 191de29... Likes OK
